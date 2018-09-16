@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+import PropData from './Data.json';
+
+class Dashboard extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            Module: [
+                {   
+                    number: 1,
+                    name: 'Shr',
+                    urlName: 'Url1'
+                },
+                {
+                    number: 2,
+                    name: 'Abc',
+                    urlName: 'Url2'
+                },
+            ]
+        }
+    }
+
+    render() {
+        let length = this.state.Module.length;
+        let Mod = this.state.Module;
+
+        let Arr = [];
+        let Arr1 = [];
+        for (let i = 0; i < length; i++) {
+            let id = i;
+            let disp = this.state.Module[i].name;
+            let dispURL = this.state.Module[i].urlName;
+            console.log(disp);
+            console.log(dispURL);
+            Arr.push(disp,dispURL);
+           
+        };
+        console.log(Arr);
+        console.log(PropData);
+
+
+        return (
+            <div>
+                {Mod.map((detail, index) => [<div class="card m-2 p-2">{detail.number}. {detail.name} linked to {detail.urlName}</div>, index < Mod.length - 1])}
+            </div>
+        );
+    }
+}
+
+export default Dashboard;
